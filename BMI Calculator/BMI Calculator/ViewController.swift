@@ -20,15 +20,27 @@ class ViewController: UIViewController {
 
     //Performs calculation by dividing weight by height^2
     @IBAction func calculateBmiButton(_ sender: UIButton) {
-   
+        
+        var weight: Double = 0
+        var height: Double = 0
+        
+        if weightTextField.text != nil{
+            if Double(weightTextField.text!) != nil{
+                weight = Double(weightTextField.text!)! / 2.205
+            }
+        }
+        
+        if heightTextField.text != nil{
+            if Double(heightTextField.text!) != nil{
+                height = Double(heightTextField.text!)! / 39.37
+            }
+        }
+        
         //reveals hidden lable after calculation is performed
         self.bmiLabel.isHidden = false
-        //takes enterd weight and heights and converts the value to metric system
-        let weight = Double(weightTextField.text!)! / 2.205
-        let height = Double(heightTextField.text!)! / 39.37
+    
         
-        
-        
+        // formula for calculating BMI
         let bmi = weight/(height * height)
    
         var classification:String
